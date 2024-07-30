@@ -8,4 +8,4 @@ class PatientReportDetails(models.Model):
     patient_id = fields.Many2one(comodel_name='patient.details', string='Patient name')
     doctor_id = fields.Char(string='Doctor name', related='patient_id.appointment_id.doctor_id.name', store=True)
     product_id = fields.Many2one('product.product', string='Medicine')
-    qty = fields.Float(string='Quantity')
+    price = fields.Float(string='Price')
