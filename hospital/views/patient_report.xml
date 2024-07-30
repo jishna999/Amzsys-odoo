@@ -9,7 +9,7 @@
                     <field name="patient_id"/>
                     <field name="doctor_id"/>
                     <field name="product_id"/>
-                    <field name="qty"/>
+                    <field name="price"/>
                 </tree>
             </field>
         </record>
@@ -17,7 +17,7 @@
         <record id="patient_report_details_action" model="ir.actions.act_window">
             <field name="name">Patient reports</field>
             <field name="res_model">patient.report.details</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree</field>
         </record>
 
     </data>
