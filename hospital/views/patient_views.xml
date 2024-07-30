@@ -1,0 +1,76 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="patient_details_form_view">
+            <field name="name">patient.details.form.view</field>
+            <field name="model">patient.details</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_confirm" type="object" string="Confirm" invisible="state != 'draft' "
+                                class="oe_highlight"/>
+                        <button name="action_ongoing" type="object" string="Ongoing" invisible="state != 'confirm'"
+                                class="oe_highlight"/>
+                        <button name="action_done" type="object" string="Done" invisible="state != 'ongoing' "
+                                class="oe_highlight"/>
+                        <button name="action_cancel" type="object" string="Cancel" invisible="state == 'done' "
+                        />
+
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,ongoing,done"/>
+                    </header>
+                <sheet>
+                        <notebook>
+                            <page string="Patient details">
+                                <group>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="disease_name"/>
+                                    </group>
+                                    <group>
+                                        <field name="age"/>
+                                        <field name="phone_no"/>
+                                        <field name="address" />
+                                    </group>
+
+                                </group>
+                            </page>
+                            <page string="Appointment details">
+                                <group string="Appointment details">
+                                    <field name="appointment_id"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" options="{'open_attachments': True}"/>
+                        <field name="message_ids"/>
+                    </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="patient_details_tree_view">
+            <field name="name">patient.details.tree.view</field>
+            <field name="model">patient.details</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="disease_name"/>
+                    <field name="age"/>
+                    <field name="phone_no" optional="show"/>
+                    <field name="address" optional="hide"/>
+                    <field name="appointment_id" widget="many2many_tags"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="patient_details_action_window">
+            <field name="name">Patients</field>
+            <field name="res_model">patient.details</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

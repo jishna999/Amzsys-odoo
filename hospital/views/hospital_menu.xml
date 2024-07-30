@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+
+    <menuitem name="Hospital"
+              id="hospital.menu_root"/>
+
+    <menuitem name="Doctors"
+              id="doctor_details_menu"
+              parent="hospital.menu_root"
+              action="hospital.doctor_details_action_window"
+              groups="hospital.group_hospital_doctors"/>
+
+    <menuitem name="Patients"
+              id="patient_details_root_menu"
+              parent="hospital.menu_root"/>
+
+    <menuitem name="Patient details"
+              id="patient_details_menu"
+              parent="hospital.patient_details_root_menu"
+              action="hospital.patient_details_action_window"
+              groups="hospital.group_hospital_receptionist"/>
+
+    <menuitem name="Patients details(read only)"
+              id="patient_details_readonly_menu"
+              parent="hospital.patient_details_root_menu"
+              action="hospital.patient_details_read_only_action_window"
+              groups="hospital.group_hospital_doctors"/>
+
+    <menuitem name="Appointments"
+              id="appointment_details_menu"
+              parent="hospital.menu_root"
+              action="hospital.appointment_details_action_window"/>
+
+    <menuitem name="Report"
+              id="report_details_root"
+              parent="hospital.menu_root"
+              groups="hospital.group_hospital_doctors"/>
+
+    <menuitem name="Medicine"
+              id="report_details"
+              parent="report_details_root"
+              action="hospital.patient_report_details_action"/>
+
+  </data>
+</odoo>

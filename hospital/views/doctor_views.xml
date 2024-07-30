@@ -1,0 +1,90 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="doctor_details_tree_view">
+            <field name="name">Doctor details</field>
+            <field name="model">doctor.details</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone_no"/>
+                    <field name="department"/>
+                    <field name="fee" optional="hide"/>
+                    <field name="appointment_id" optional="show" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="doctor_details_form_view">
+            <field name="name">Doctor details</field>
+            <field name="model">doctor.details</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_confirm" type="object" string="Confirm" invisible="state != 'draft' "
+                                class="oe_highlight"/>
+                        <button name="action_ongoing" type="object" string="Ongoing" invisible="state != 'confirm'"
+                                class="oe_highlight"/>
+                        <button name="action_done" type="object" string="Done" invisible="state != 'ongoing' "
+                                class="oe_highlight"/>
+                        <button name="action_cancel" type="object" string="Cancel" invisible="state == 'done' "
+                        />
+
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,ongoing,done"/>
+                    </header>
+                    <sheet>
+                    <notebook>
+                        <page string="Doctor Details">
+                            <group>
+                                <group string="Professional details">
+                                    <field name="name" placeholder="Doctor name"/>
+                                    <field name="email" placeholder="Email ID"/>
+                                    <field name="phone_no" placeholder="Mobile no"/>
+                                    <field name="department" placeholder="Select department"/>
+                                    <field name="fee" placeholder="Examination fee"/>
+                                </group>
+                            </group>
+                       </page>
+                    </notebook>
+                        <notebook>
+                        <page string="Appointment Details">
+                            <group>
+                                <field name="appointment_id"/>
+                            </group>
+                        </page>
+                    </notebook>
+                        <div class="oe_chatter">
+                        <field name="message_follower_ids" options="{'open_attachments': True}"/>
+                        <field name="message_ids"/>
+                    </div>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="doctor_details_action_window">
+            <field name="name">Doctors</field>
+            <field name="res_model">doctor.details</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Top menu item -->
+        <!--
+            <menuitem name="hospital" id="hospital.menu_root"/>
+        -->
+        <!-- menu categories -->
+        <!--
+            <menuitem name="Menu 1" id="hospital.menu_1" parent="hospital.menu_root"/>
+            <menuitem name="Menu 2" id="hospital.menu_2" parent="hospital.menu_root"/>
+        -->
+        <!-- actions -->
+        <!--
+            <menuitem name="List" id="hospital.menu_1_list" parent="hospital.menu_1"
+                      action="hospital.action_window"/>
+            <menuitem name="Server to list" id="hospital" parent="hospital.menu_2"
+                      action="hospital.action_server"/>
+        -->
+    </data>
+</odoo>

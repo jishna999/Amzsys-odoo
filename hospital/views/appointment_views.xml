@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+
+
+        <record model="ir.ui.view" id="appointment_details_tree_view">
+            <field name="name">appointment.details.tree.view</field>
+            <field name="model">appointment.details</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="references"/>
+                    <field name="patient_id"/>
+                    <field name="doctor_id"/>
+                    <field name="create_uid" groups="hospital.group_hospital_doctors"/>
+                    <field name="appointment_date"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="appointment_details_form_view">
+            <field name="name">appointment.details.form.view</field>
+            <field name="model">appointment.details</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_confirm" type="object" string="Confirm" invisible="state != 'draft' "
+                                class="oe_highlight"/>
+                        <button name="action_ongoing" type="object" string="Ongoing" invisible="state != 'confirm'"
+                                class="oe_highlight"/>
+                        <button name="action_done" type="object" string="Done" invisible="state != 'ongoing' "
+                                class="oe_highlight"/>
+                        <button name="action_cancel" type="object" string="Cancel" invisible="state == 'done' "
+                        />
+
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,ongoing,done"/>
+                    </header>
+                    <sheet>
+                        <notebook>
+                            <page string="Appointment Details">
+                                <group>
+                                    <group>
+                                        <field name="references" readonly="1"/>
+                                        <field name="patient_id"/>
+                                        <field name="doctor_id"/>
+                                        <field name="create_uid" groups="hospital.group_hospital_doctors"/>
+                                    </group>
+                                    <group>
+                                        <field name="appointment_date"/>
+                                    </group>
+
+                                </group>
+                            </page>
+                        </notebook>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" options="{'open_attachments': True}"/>
+                            <field name="message_ids"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="appointment_details_action_window">
+            <field name="name">Appointment details</field>
+            <field name="res_model">appointment.details</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
