@@ -8,7 +8,7 @@
               id="doctor_details_menu"
               parent="hospital.menu_root"
               action="hospital.doctor_details_action_window"
-              groups="hospital.group_hospital_doctors"/>
+              groups="hospital.group_hospital_receptionist"/>
 
     <menuitem name="Patients"
               id="patient_details_root_menu"
@@ -29,7 +29,9 @@
     <menuitem name="Appointments"
               id="appointment_details_menu"
               parent="hospital.menu_root"
-              action="hospital.appointment_details_action_window"/>
+              action="hospital.appointment_details_action_window"
+              groups="hospital.group_hospital_doctors,hospital.group_hospital_receptionist"/>
+
 
     <menuitem name="Report"
               id="report_details_root"
