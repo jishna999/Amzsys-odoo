@@ -5,42 +5,42 @@
               id="hospital.menu_root"/>
 
     <menuitem name="Doctors"
-              id="doctor_details_menu"
+              id="hospital.doctor_details_menu"
               parent="hospital.menu_root"
               action="hospital.doctor_details_action_window"
               groups="hospital.group_hospital_receptionist"/>
 
     <menuitem name="Patients"
-              id="patient_details_root_menu"
+              id="hospital.patient_details_root_menu"
               parent="hospital.menu_root"/>
 
     <menuitem name="Patient details"
-              id="patient_details_menu"
+              id="hospital.patient_details_menu"
               parent="hospital.patient_details_root_menu"
               action="hospital.patient_details_action_window"
               groups="hospital.group_hospital_receptionist"/>
 
-    <menuitem name="Patients details(read only)"
-              id="patient_details_readonly_menu"
+    <menuitem name="Patients details (read only)"
+              id="hospital.patient_details_readonly_menu"
               parent="hospital.patient_details_root_menu"
               action="hospital.patient_details_read_only_action_window"
               groups="hospital.group_hospital_doctors"/>
 
-    <menuitem name="Appointments"
-              id="appointment_details_menu"
+    
+    <menuitem name="Appointments (Receptionist)"
+              id="hospital.appointment_details_menu_receptionist"
               parent="hospital.menu_root"
               action="hospital.appointment_details_action_window"
-              groups="hospital.group_hospital_doctors,hospital.group_hospital_receptionist"/>
-
+              groups="hospital.group_hospital_receptionist"/>
 
     <menuitem name="Report"
-              id="report_details_root"
+              id="hospital.report_details_root"
               parent="hospital.menu_root"
               groups="hospital.group_hospital_doctors"/>
 
-    <menuitem name="Medicine"
-              id="report_details"
-              parent="report_details_root"
+    <menuitem name="Medicine details"
+              id="hospital.medicine_details"
+              parent="hospital.report_details_root"
               action="hospital.patient_report_details_action"/>
 
   </data>
