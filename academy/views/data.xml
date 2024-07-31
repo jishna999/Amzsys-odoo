@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+
+        <menuitem name="Academy" id="academy_menu_root" web_icon="academy,static/description/icon.png"/>
+        <menuitem name="Details" id="academy_details_menu" parent="academy_menu_root"/>
+        <menuitem name="Student Details" id="academy_student_details" parent="academy_details_menu"
+                  action="academy_student_action"/>
+        <menuitem name="Teacher Details" id="academy_teacher_details" parent="academy_details_menu"
+                  action="academy_teacher_action"/>
+        <menuitem name="Hobbies" id="academy_hobby_menu" parent="academy_menu_root" action="academy_hobby_action"/>
+        <menuitem name="Configuration" id="menu_configuration" parent="academy_menu_root" sequence="100"/>
+        <menuitem name="Student Tag" id="student_tag_configuration" parent="menu_configuration"
+                  action="academy_student_tag_action"/>
+        <menuitem name="Student Tag Lines" id="academy_student_tag_lines" parent="menu_configuration"
+                  action="academy_student_tag_lines_action"/>
+        <menuitem name="Student Tag Lines views" id="academy_student_tag_lines_views" parent="menu_configuration"
+                  action="academy_student_tag_lines_view_action"/>
+
+    </data>
+</odoo>
