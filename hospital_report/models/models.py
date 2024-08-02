@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class add_stock_reference(models.Model):
-#     _name = 'add_stock_reference.add_stock_reference'
-#     _description = 'add_stock_reference.add_stock_reference'
+# class hospital_report(models.Model):
+#     _name = 'hospital_report.hospital_report'
+#     _description = 'hospital_report.hospital_report'
 
 #     name = fields.Char()
 #     value = fields.Integer()

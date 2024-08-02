@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_patient_details_id">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <div class="oe_structure">
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table table-condensed table-bordered" style="border-collapse: collapse; width: 100%;">
+                                    <tr>
+                                        <td width="40%" style="text-align: left;">
+                                            <p style="text-align: left; padding-top: 10px;">
+                                                <!-- Uncomment and use an actual image source if needed -->
+                                                <!-- <img t-att-src="../addons/web/static/img/placeholder.png" height="200" border="1" width="100"/> -->
+                                            </p>
+                                        </td>
+                                        <td width="60%" style="text-align: left;">
+                                            <table class="table table-borderless" style="width: 100%;">
+                                                <tr>
+                                                    <td colspan="3" class="text-left" style="text-align: left;">
+                                                        <span t-field="o.name" style="font-size: 20px; font-weight: bold; color: #333;"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding: 10px 0; text-align: left;">
+                                                        <strong>Age:</strong>
+                                                        <span t-field="o.age"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding: 10px 0; text-align: left;">
+                                                        <strong>Disease:</strong>
+                                                        <span t-field="o.disease_name"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br/>
+                        <t t-if="o.appointment_id">
+                            <span style="font-size: 16px; font-weight: bold; color: #555;">Appointment Details</span>
+                            <div class="table-responsive">
+                                <table class="table table-sm o_main_table" style="width: 100%; margin-top: 20px; margin-bottom: 25px; border-collapse: collapse;">
+                                    <thead>
+                                        <tr style="border: 1px solid #ddd;">
+                                            <th class="text-left" style="border: 1px solid #ddd; padding: 12px; text-align: left;">
+                                                Reference
+                                            </th>
+                                            <th class="text-left" style="border: 1px solid #ddd; padding: 12px; text-align: left;">
+                                                Appointment Date
+                                            </th>
+                                            <th class="text-left" style="border: 1px solid #ddd; padding: 12px; text-align: left;">
+                                                Doctor
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-set="appointment_count" t-value="0"/>
+                                        <t t-foreach="o.appointment_id" t-as="line">
+                                            <t t-set="appointment_count" t-value="appointment_count + 1"/>
+                                            <tr style="border: 1px solid #ddd;">
+                                                <td style="padding: 12px; text-align: left; border: 1px solid #ddd;">
+                                                    <span t-field="line.references"/>
+                                                </td>
+                                                <td style="padding: 12px; text-align: left; border: 1px solid #ddd;">
+                                                    <span t-field="line.appointment_date"/>
+                                                </td>
+                                                <td style="padding: 12px; text-align: left; border: 1px solid #ddd;">
+                                                    <span t-field="line.doctor_id.name"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <tr style="border: 1px solid #ddd;">
+                                            <td colspan="2" style="padding: 12px; font-weight: bold; text-align: left; border: 1px solid #ddd;">
+                                                Total appointments
+                                            </td>
+                                            <td style="padding: 12px; text-align: left; border: 1px solid #ddd;">
+                                                <t t-esc="appointment_count"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
