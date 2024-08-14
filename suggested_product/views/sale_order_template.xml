@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <record id="sale_order_suggested_product" model="ir.ui.view">
+            <field name="name">sale.order.suggested.product</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='order_lines']" position="after">
+                    <page string="Suggested Products" name="suggested_product">
+                        <field name="suggested_product_ids" widget="one2many_list" mode="tree" readonly="state == 'cancel' or locked">
+                            <tree editable="bottom" string="Suggested Lines" limit="200">
+                                <field name="product_id" domain="[('sale_ok', '=', True)]" options="{'no_create': True}"/>
+                                <field name="product_uom_qty"/>
+                                <field name="sale_price"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

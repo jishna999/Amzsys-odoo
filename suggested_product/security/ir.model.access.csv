@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_suggested_product,suggested.product,model_suggested_product,base.group_user,1,1,1,1
+access_suggested_product_line,suggested.product.line,model_suggested_product_line,base.group_user,1,1,1,1
+
+
