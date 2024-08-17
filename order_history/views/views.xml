@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="order_history.list">
+      <field name="name">order_history list</field>
+      <field name="model">order_history.order_history</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="order_history.action_window">
+      <field name="name">order_history window</field>
+      <field name="res_model">order_history.order_history</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="order_history.action_server">
+      <field name="name">order_history server</field>
+      <field name="model_id" ref="model_order_history_order_history"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="order_history" id="order_history.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="order_history.menu_1" parent="order_history.menu_root"/>
+    <menuitem name="Menu 2" id="order_history.menu_2" parent="order_history.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="order_history.menu_1_list" parent="order_history.menu_1"
+              action="order_history.action_window"/>
+    <menuitem name="Server to list" id="order_history" parent="order_history.menu_2"
+              action="order_history.action_server"/>
+-->
+  </data>
+</odoo>
