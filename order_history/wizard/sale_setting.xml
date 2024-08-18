@@ -8,27 +8,30 @@
                 <xpath expr="//block[@id='pricing_setting_container']" position="before">
                     <div class="settings" name="order_configuration_history_container">
                         <block title="Sale Order Configuration History" id="order_history_setting_container">
-                            <group class="content-group">
-                                <setting id="last_no_of_orders" class="setting">
-                                    <label for="last_no_of_orders" string="Last Number of Sale Orders"/>
-                                    <field name="last_no_of_orders" class="fields"/>
-                                </setting>
-                                <setting id="last_no_of_days_of_orders" string="Last No. of Day's Orders" class="setting">
-                                    <div class="field-wrapper">
-                                        <field name="last_no_of_days" class="fields"/>
-                                        <div class="inline-text">days</div>
-                                    </div>
-                                </setting>
-                            </group>
-                            <group class="content-group">
-                                <setting id="sale_order_stages" class="setting">
-                                    <label for="order_stages" string="Sale Order Stages"/>
-                                    <field name="order_stages" class="fields"/>
-                                </setting>
-                                 <setting id="sale_enable_reorder" title="Enable Reorder"
-                                    help="Enable Reorder Button for Sale Order History">
-                                    <field name="enable_reorder" class="boolean-field"/>
-                                </setting>
+                            <group>
+                                <group class="content-group">
+                                    <setting id="last_no_of_orders" class="setting">
+                                        <label for="last_no_of_orders" string="Last Number of Sale Orders"/>
+                                        <field name="last_no_of_orders" class="fields"/>
+                                    </setting>
+                                    <setting id="last_no_of_days_of_orders" string="Last No. of Day's Orders"
+                                             class="setting">
+                                        <div class="field-wrapper">
+                                            <field name="last_no_of_days" class="fields"/>
+                                            <div class="inline-text">days</div>
+                                        </div>
+                                    </setting>
+                                </group>
+                                <group class="content-group">
+                                    <setting id="sale_order_stages" class="setting">
+                                        <label for="order_stages" string="Sale Order Stages"/>
+                                        <field name="order_stages" class="fields"/>
+                                    </setting>
+                                    <setting id="sale_enable_reorder" title="Enable Reorder"
+                                             help="Enable Reorder Button for Sale Order History">
+                                        <field name="enable_reorder" class="boolean-field"/>
+                                    </setting>
+                                </group>
                             </group>
                         </block>
                     </div>

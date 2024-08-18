@@ -21,6 +21,7 @@
     'assets': {
         'web.assets_backend': [
             'order_history/static/css/setting.css',
+            'order_history/static/css/order_history.css',
         ],
     },
     'demo': [

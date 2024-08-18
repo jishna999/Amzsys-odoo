@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import fields, models,api
 
 class OrderHistory(models.Model):
     _name = 'order.history'
@@ -10,7 +10,7 @@ class OrderHistory(models.Model):
     )
     order_line_id = fields.Many2one(
         comodel_name='sale.order.line',
-        string='Order line'
+        string='Order Line'
     )
     order_history_selected = fields.Boolean(
         string='Re-Order'
@@ -35,16 +35,35 @@ class OrderHistory(models.Model):
         string='Discount'
     )
     amount_total = fields.Float(
-        string='Sub Total'
+        string='Sub Total',
+        compute='_compute_amount_total',
+        store=True
     )
-    state = fields.Selection([
-        ('draft', 'Draft'),
-        ('sent', 'Sent'),
-        ('sale', 'Sale'),
-        ('done', 'Done'),
-        ('cancel', 'Cancelled'),
-    ], string='Order Status')
+    state = fields.Selection(
+        string='Order Status',
+        selection='_get_allowed_states',
 
+    )
+
+    @api.depends('price', 'qty_unit', 'discount')
+    def _compute_amount_total(self):
+        for record in self:
+            record.amount_total = (record.price * record.qty_unit) - record.discount
+
+    def _get_allowed_states(self):
+        order_stages = self.env['res.config.settings'].sudo().get_values().get('order_stages', 'all')
+
+        if order_stages == 'all':
+            return [
+                ('draft', 'Quotation'),
+                ('sent', 'Quotation Sent'),
+                ('sale', 'Sale Order'),
+                ('done', 'Done'),
+                ('cancel', 'Cancelled'),
+            ]
+        return [(order_stages, dict(self._fields['state'].selection).get(order_stages))]
 
     def action_reorder(self):
-        return self.order_id.action_reorder()
+        if self.order_id:
+            self.write({'order_history_selected': True})
+            return self.order_id.action_reorder()
