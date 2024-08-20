@@ -20,7 +20,7 @@
                                 <field name="discount" optional="hide"/>
                                 <field name="amount_total" optional="show"/>
                                 <field name="state" widget="badge"
-                                       options="{'badge-green': 'sale', 'badge-red': 'cancel', 'badge-blue': 'draft', 'badge-violet': 'sent', 'badge-grey': 'done'}"/>
+                                       options="{'badge-green': 'sale', 'badge-red': 'cancel', 'badge-blue': 'draft', 'badge-grey': 'done'}"/>
                                 <button name="action_reorder" type="object" string="RE-ORDER" class="oe_highlight"/>
 
                             </tree>

@@ -27,4 +27,3 @@ class ResConfigSettings(models.TransientModel):
         "Enable Reorder",
         config_parameter='sale.enable_reorder'
     )
-

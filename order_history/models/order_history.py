@@ -6,12 +6,16 @@ class OrderHistory(models.Model):
 
     order_id = fields.Many2one(
         comodel_name='sale.order',
-        string="Order"
+        string='Sale Order',
+        required=True,
+        ondelete='cascade'
     )
     order_line_id = fields.Many2one(
         comodel_name='sale.order.line',
-        string='Order Line'
+        string='Order Line',
+        required=True
     )
+
     order_history_selected = fields.Boolean(
         string='Re-Order'
     )
@@ -53,15 +57,20 @@ class OrderHistory(models.Model):
     def _get_allowed_states(self):
         order_stages = self.env['res.config.settings'].sudo().get_values().get('order_stages', 'all')
 
+        allowed_states = [
+            ('draft', 'Quotation'),
+            ('sent', 'Quotation Sent'),
+            ('sale', 'Sale Order'),
+            ('done', 'Done'),
+            ('cancel', 'Cancelled'),
+        ]
+
         if order_stages == 'all':
-            return [
-                ('draft', 'Quotation'),
-                ('sent', 'Quotation Sent'),
-                ('sale', 'Sale Order'),
-                ('done', 'Done'),
-                ('cancel', 'Cancelled'),
-            ]
-        return [(order_stages, dict(self._fields['state'].selection).get(order_stages))]
+            return allowed_states
+
+
+        filtered_state = [(stage, label) for stage, label in allowed_states if stage == order_stages]
+        return filtered_state if filtered_state else allowed_states
 
     def action_reorder(self):
         if self.order_id:
