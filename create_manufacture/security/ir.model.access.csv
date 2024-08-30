@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mrp_manufacture,mrp.manufacture,model_mrp_manufacture,base.group_user,1,1,1,1
+access_mrp_manufacture_line,mrp.manufacture.line,model_mrp_manufacture_line,base.group_user,1,1,1,1
