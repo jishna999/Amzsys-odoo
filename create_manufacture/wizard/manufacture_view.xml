@@ -3,7 +3,7 @@
         <field name="name">view_billing.materials.manufacture.form.view</field>
         <field name="model">mrp.manufacture</field>
         <field name="arch" type="xml">
-            <form string="Create Manufacture">
+            <form string="Create Manufacture Order">
                 <sheet>
                     <group>
                         <field name="mrp_id"/>
@@ -16,8 +16,12 @@
                             </tree>
                         </field>
                     </group>
-                    <button string="Create Manufacture" type="object" name="action_create_manufacture"
+                    <footer>
+                        <button string="Create Manufacture Order" type="object" name="action_create_manufacture"
                             class="oe_highlight"/>
+                        <button string="Cancel" type="special" special="cancel" class="btn-secondary"/>
+
+                    </footer>
 
                 </sheet>
             </form>

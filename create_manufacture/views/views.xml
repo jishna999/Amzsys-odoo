@@ -8,7 +8,7 @@
 
                 <xpath expr="//form/sheet" position="before">
                     <header>
-                        <button name="action_create_manufacture" string="CREATE MANUFACTURE" type="object"
+                        <button name="action_create_manufacture" string="Create Manufacture Order" type="object"
                                 class="oe_highlight"/>
                     </header>
                 </xpath>

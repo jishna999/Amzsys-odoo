@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="purchase_order_from_sale_order.list">
+            <field name="name">purchase_order_from_sale_order list</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+              <xpath expr="//form/header//button[@name='action_cancel']" position="after">
+
+                  <button name="action_purchase_order" string="Create PO" type="object" class="oe_highlight"/>
+
+              </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
