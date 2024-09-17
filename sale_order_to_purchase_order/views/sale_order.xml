@@ -1,0 +1,30 @@
+<odoo>
+    <record id="view_sale_order_form_inherit_po_button" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.po.button</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header//button[@name='action_cancel']" position="after">
+                <button name="%(action_create_purchase_order_wizard)d" string="Create PO" type="action" class="btn-primary"/>
+            </xpath>
+
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button name="action_open_purchase_orders" class="oe_stat_button" icon="fa-truck"
+                    invisible="purchase_order_count == 0">
+                    <field name="purchase_order_count"  string="Purchase Orders"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_create_purchase_order_wizard" model="ir.actions.act_window">
+        <field name="name">Create Purchase Order</field>
+        <field name="res_model">create.purchase.order.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_create_purchase_order_wizard_form"/>
+        <field name="context">{'active_id': active_id}</field>
+    </record>
+
+
+</odoo>
