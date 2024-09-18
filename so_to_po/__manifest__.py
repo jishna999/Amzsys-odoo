@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "module1",
+    'name': "sale_order_to_purchase_order",
 
     'summary': "Short (1 phrase/line) summary of the module's purpose",
 
     'description': """
-Long description of module's purpose
+ From sale module creating purchase order 
     """,
 
-    'author': "My Company",
+    'author': "Amzsys private limited",
     'website': "https://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -16,16 +16,17 @@ Long description of module's purpose
     # for the full list
     'category': 'Uncategorized',
     'version': '0.1',
-'license': 'LGPL-3',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+
+    'depends': ['base', 'sale_purchase', ],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+         'security/ir.model.access.csv',
+        'views/sale_order_view.xml',
+         'views/purchase_order_view.xml',
+        'wizard/purchase_wizard_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
