@@ -1,0 +1,34 @@
+<odoo>
+
+    <template id="hide_bom_cost_column_data" inherit_id="mrp.report_mrp_bom">
+        <xpath expr="//table//thead//tr//th[9]" position="attributes">
+            <attribute name="groups">show_hide_product_prices.group_cost_price</attribute>
+        </xpath>
+        <xpath expr="//table//thead//tr//th[10]" position="attributes">
+            <attribute name="groups">show_hide_product_prices.group_cost_price</attribute>
+        </xpath>
+         <xpath expr="//table//tbody/tr/td[9]" position="attributes">
+            <attribute name="groups">show_hide_product_prices.group_cost_price</attribute>
+        </xpath>
+        <xpath expr="//table//tbody/tr/td[10]" position="attributes">
+            <attribute name="groups">show_hide_product_prices.group_cost_price</attribute>
+        </xpath>
+        <xpath expr="//table//tfoot/tr/td[9]" position="attributes">
+            <attribute name="groups">show_hide_product_prices.group_cost_price</attribute>
+        </xpath>
+        <xpath expr="//table//tfoot/tr/td[10]" position="attributes">
+            <attribute name="groups">show_hide_product_prices.group_cost_price</attribute>
+        </xpath>
+    </template>
+
+    <template id="report_mrp_bom_pdf_line" inherit_id="mrp.report_mrp_bom_pdf_line">
+        <xpath expr="//tr/td[9]" position="attributes">
+            <attribute name="groups">show_hide_product_prices.group_cost_price</attribute>
+
+        </xpath>
+        <xpath expr="//tr/td[10]" position="attributes">
+            <attribute name="groups">show_hide_product_prices.group_cost_price</attribute>
+
+        </xpath>
+    </template>
+</odoo>
