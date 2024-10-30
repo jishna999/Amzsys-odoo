@@ -1,7 +1,6 @@
 <odoo>
     <data>
 
-        <!-- Student Tree View -->
         <record model="ir.ui.view" id="academy_student_tree_view">
             <field name="name">academy.student.tree.view</field>
             <field name="model">academy.student</field>
@@ -18,12 +17,12 @@
             </field>
         </record>
 
-        <!-- Student Form View -->
         <record model="ir.ui.view" id="academy_student_form_view">
             <field name="name">academy.student.form.view</field>
             <field name="model">academy.student</field>
             <field name="arch" type="xml">
                 <form>
+
                     <header>
                         <button name="action_confirm" type="object" string="Confirm" invisible="state != 'draft' "
                                 class="oe_highlight"/>
@@ -89,7 +88,6 @@
                 </form>
             </field>
         </record>
-
 
         <record model="ir.actions.act_window" id="academy_student_action">
             <field name="name">Students</field>

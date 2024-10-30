@@ -26,11 +26,7 @@
               action="hospital.patient_details_read_only_action_window"
               groups="hospital.group_hospital_doctors"/>
 
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 6177008 (task)
     <menuitem name="Appointments (Receptionist)"
               id="hospital.appointment_details_menu_receptionist"
               parent="hospital.menu_root"

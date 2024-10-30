@@ -10,6 +10,7 @@
     'website': "https://www.yourcompany.com",
     'category': 'Sales',
     'version': '0.1',
+    'license': 'LGPL-3',
     'depends': ['base', 'sale', 'sale_management'],
     'data': [
         'views/views.xml',

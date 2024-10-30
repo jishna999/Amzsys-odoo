@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "create_manufacture_order",
+    'name': "create_manufacture_order_from_bom",
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'summary': "creating a new manufacture order from Bil of material",
 
     'description': """
-Long description of module's purpose
+From Manufacture module new production order for a perticular bill of Material is created
     """,
 
     'author': "Amzsys Private limited",
@@ -16,18 +16,19 @@ Long description of module's purpose
     # for the full list
     'category': 'Uncategorized',
     'version': '0.1',
+    'license': 'LGPL-3',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mrp',],
+    'depends': ['base', 'mrp', ],
 
     # always loaded
     'data': [
-         'security/ir.model.access.csv',
-         'wizard/manufacture_view.xml',
+        'security/ir.model.access.csv',
+        'views/views.xml',
+        'wizard/manufacture_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
 }
-

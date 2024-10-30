@@ -35,7 +35,7 @@ print(count)
 # Read a specific record
 ids = models.execute_kw(db, uid, password, 'res.partner', 'search', [[['is_company', '=', True]]], {'limit': 1})
 [record] = models.execute_kw(db, uid, password, 'res.partner', 'read', [ids])
-print(record, "length", len(record))
+print("length", len(record))
 
 # Read specific fields of a record
 selected_fields = models.execute_kw(db, uid, password, 'res.partner', 'read', [ids], {'fields': ['name', 'country_id', 'comment']})
@@ -51,7 +51,7 @@ print(search_read)
 
 # Create a new record
 id = models.execute_kw(db, uid, password, 'res.partner', 'create', [{'name': "New Partner"}])
-print(id)
+print("new record created",id)
 
 # Update the record
 models.execute_kw(db, uid, password, 'res.partner', 'write', [[id], {'name': "Newer partner"}])

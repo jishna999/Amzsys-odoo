@@ -30,7 +30,7 @@ class SaleOrderSerial(models.Model):
 
         return res
 
-    def _create_invoices(self, grouped=False, final=False):
+    def _create_invoices(self):
         result = super(SaleOrderSerial, self)._create_invoices()
         sale_order_lines = self.mapped('order_line')
         for line in sale_order_lines:

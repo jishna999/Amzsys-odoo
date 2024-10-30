@@ -2,7 +2,7 @@
     <data>
         <record model="ir.ui.view" id="student_tag_form_view">
             <field name="name">student.tag.form.view</field>
-            <field name="model">student.tag</field>
+            <field name="model">academy.student.tag</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -32,7 +32,7 @@
         </record>
         <record id="academy_student_tag_lines_view_action" model="ir.actions.act_window">
             <field name="name">Student Tags</field>
-            <field name="res_model">student.tag</field>
+            <field name="res_model">academy.student.tag</field>
             <field name="view_mode">form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">

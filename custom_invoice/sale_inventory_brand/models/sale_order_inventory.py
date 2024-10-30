@@ -12,6 +12,6 @@ class SaleOrderTemplate(models.Model):
         result = super(SaleOrderTemplate, self)._action_confirm()
         for picking in self.picking_ids:
             picking.stock_reference = self.stock_reference
-            for move in picking.move_ids:  # Corrected from move_lines to move_ids
-                move.stock_reference = self.stock_reference
+            # for move in picking.move_ids:
+            #     move.stock_reference = self.stock_reference
         return result

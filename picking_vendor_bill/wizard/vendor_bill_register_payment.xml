@@ -1,9 +1,9 @@
 <odoo>
     <record model="ir.ui.view" id="picking_vendor_bill_wizard_form_view">
         <field name="name">picking.vendor.bill.wizard.form.view</field>
-        <field name="model">register.payment</field>
+        <field name="model">picking.vendor.bill</field>
         <field name="arch" type="xml">
-            <form string="Register Payment">
+            <form string="Create Vendor Bill">
                 <sheet>
                     <group>
                         <field name="bill_date"/>
@@ -11,21 +11,19 @@
                     </group>
                 </sheet>
                 <footer>
-                    <button name="action_create_vendor_bill" string="Create Vendor bill" type="object" class="btn-secondary"
-                            />
-                    <button special="cancel" data-hotkey="x" string="Close" class="btn-primary"/>
-
+                    <button name="action_create_vendor_bill" string="Create Bill" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-secondary"/>
                 </footer>
-
             </form>
         </field>
     </record>
-    <record model="ir.actions.act_window" id="action_crate_vendor_bill_wizard">
-      <field name="name">Register Payment</field>
-      <field name="res_model">register.payment</field>
-      <field name="view_id" ref="picking_vendor_bill.picking_vendor_bill_wizard_form_view"/>
-       <field name="target">new</field>
-        <field name="context">{'default_stock_picking_id':active_id}</field>
-      <field name="view_mode">form</field>
+
+    <record id="picking_vendor_bill_action_create_vendor_bill_wizard" model="ir.actions.act_window">
+        <field name="name">Create Vendor Bill</field>
+        <field name="res_model">picking.vendor.bill</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="picking_vendor_bill.picking_vendor_bill_wizard_form_view"/>
+        <field name="context">{'default_picking_id': active_id}</field>
+        <field name="target">new</field>
     </record>
 </odoo>

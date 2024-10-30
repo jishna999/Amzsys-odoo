@@ -19,23 +19,15 @@ class SaleOrderSerial(models.Model):
         # which sales order a particular line belongs to.
 
         for line in sale_order_lines:
-            stock_moves = self.env['stock.move'].search([('sale_line_id', '=', line.id)])
 
-            # sale_line_id is the Many2one field from stock.move to sale.order.line in sale_stock module by search
-            # from inherited stock.move modules Here, it's looking for stock.move records where the sale_line_id
-            # field matches the ID of the sale.order.line record referred to by line. ' line.id: This refers to the
-            # ID of the sale.order.line record currently being processed.
-
-            for move in stock_moves:
+            for move in self.mapped(
+                    'order_line.move_ids'):
                 move.lot_ids = line.serial_no_id
 
-        for move in self.mapped(
-                'order_line.move_ids'):  # move_ids is One2many field from sale.order.line to stock.move in
-            # sale_stock module
+                for move_line in move.move_line_ids:
+                    move_line.lot_id = move.lot_ids
 
-            for move_line in move.move_line_ids:  # move_line_ids one2many relation from stock.move to
-                # stock.move.lines
-                move_line.lot_id = move.lot_ids
+
 
         return res
 

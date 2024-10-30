@@ -20,17 +20,17 @@ Sale order line description and Purchase order line description  are added to de
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale_purchase_stock'],
+    'depends': ['base','sale_purchase_stock',],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
          'security/security.xml',
-         # 'views/sale_order.xml',
+          'views/sale_order.xml',
         'views/purchase_order.xml',
         'views/stock_move.xml',
         'report/delivery_slip.xml',
-        'report/picking_operations.xml',
+        # 'report/picking_operations.xml',
         # 'views/templates.xml',
     ],
     # only loaded in demonstration mode

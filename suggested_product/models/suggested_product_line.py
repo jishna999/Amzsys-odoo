@@ -3,6 +3,7 @@ from odoo import models, fields, api
 
 class SuggestedProductLine(models.Model):
     _name = 'suggested.product.line'
+    _description = 'Description of the suggested product line model'
 
     invoice_id = fields.Many2one(
         comodel_name='account.move',
@@ -13,20 +14,25 @@ class SuggestedProductLine(models.Model):
         comodel_name='product.product',
         string='Product',
         domain="[('sale_ok', '=', True)]",
-        options={'no_create': True}
+
     )
-    # invoice_suggested_product_ids = fields.Many2many(
-    #     comodel_name='sale.order',
-    #     relation='suggested_product_invoice_rel',
-    #     column1='suggested_product_id',
-    #     column2='suggested_line_id',
-    #     string='Suggested Product Invoice Lines',
-    #     readonly=True,
-    #     copy=False
-    # )
 
     product_uom_qty = fields.Float(string='Quantity')
     sale_price = fields.Float(string='Sale Price')
+
+    currency_id = fields.Many2one(
+        comodel_name='res.currency',
+        string="Currency",
+        related='invoice_id.currency_id',
+        store=True
+    )
+
+    total_amount = fields.Monetary(
+        string="Total",
+        compute='_compute_total_amount',
+        store=True,
+        currency_field='currency_id'
+    )
 
     @api.onchange('product_id')
     def onchange_product_sale_price(self):
@@ -34,3 +40,8 @@ class SuggestedProductLine(models.Model):
             self.sale_price = self.product_id.list_price
         else:
             self.sale_price = 0.0
+
+    @api.depends('product_uom_qty', 'sale_price')
+    def _compute_total_amount(self):
+        for record in self:
+            record.total_amount = record.product_uom_qty * record.sale_price

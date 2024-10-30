@@ -1,1 +1,1 @@
-from . import register_payment
+from . import picking_vendor_bill

@@ -1,6 +1,6 @@
 <odoo>
-    <record id="view_create_purchase_order_wizard_form" model="ir.ui.view">
-        <field name="name">create.purchase.order.wizard.form</field>
+    <record id="create_purchase_order_wizard_form_view" model="ir.ui.view">
+        <field name="name">create.purchase.order.wizard.form.view</field>
         <field name="model">create.purchase.order.wizard</field>
         <field name="arch" type="xml">
             <form string="Create Purchase Orders">
@@ -10,13 +10,13 @@
                         <field name="scheduled_date"/>
                     </group>
                     <field name="sale_order_line_ids">
-                    <tree>
-                        <field name="product_template_id" string="Product"/>
-                        <field name="name" string="Description"/>
-                        <field name="product_uom_qty" string="Ordered Quantity"/>
-                        <field name="price_unit" string="Unit_price"/>
-                        <field name="price_total" string="Sub total"/>
-                    </tree>
+                        <list editable="bottom">
+                            <field name="product_id" string="Product"/>
+                            <field name="name" string="Description"/>
+                            <field name="product_uom_qty" string="Ordered Quantity"/>
+                            <field name="price_unit" string="Unit Price"/>
+                            <field name="price_subtotal" string="Subtotal"/>
+                        </list>
                     </field>
                 </sheet>
                 <footer>
@@ -26,12 +26,11 @@
             </form>
         </field>
     </record>
-
     <record id="action_open_purchase_order_wizard" model="ir.actions.act_window">
         <field name="name">Create Purchase Order</field>
         <field name="res_model">create.purchase.order.wizard</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="view_create_purchase_order_wizard_form"/>
+        <field name="view_id" ref="so_to_po.create_purchase_order_wizard_form_view"/>
         <field name="target">new</field>
     </record>
 </odoo>

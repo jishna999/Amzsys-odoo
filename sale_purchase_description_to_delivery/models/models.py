@@ -18,8 +18,6 @@ class SaleOrder(models.Model):
 
 
 
-
-
 class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
@@ -33,6 +31,11 @@ class PurchaseOrder(models.Model):
                     move.description_picking = purchase_order_line.name
         return res
 
+
+class SaleOrderLine(models.Model):
+    _inherit = 'sale.order.line'
+    def _compute_name(self):
+        pass
 
 
 

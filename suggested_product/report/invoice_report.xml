@@ -11,6 +11,7 @@
                             <th style="width: 50%;">Product</th>
                             <th style="width: 25%;">Quantity</th>
                             <th style="width: 25%;">Sale Price</th>
+                            <th style="width: 25%;">Total</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -19,10 +20,29 @@
                                 <td><span t-field="line.product_id.name"/></td>
                                 <td><span t-field="line.product_uom_qty"/></td>
                                 <td><span t-field="line.sale_price"/></td>
+                                <td><span t-field="line.total_amount"/></td>
+
                             </tr>
                         </t>
                     </tbody>
                 </table>
+<!--                <div class="clearfix" name="so_total_summary">-->
+<!--                    <div id="total" class="row" name="total">-->
+<!--                        <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ms-auto">-->
+<!--                            <table class="table table-sm table-borderless">-->
+<!--                                <tr class="border-black o_total">-->
+<!--                                    <td>-->
+<!--                                        <strong>Total</strong>-->
+<!--                                    </td>-->
+<!--                                    <td class="text-end">-->
+<!--                                        <span t-field="o.account_suggested_product_price_total"/>-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                            </table>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
             </div>
         </xpath>
     </template>

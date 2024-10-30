@@ -16,6 +16,7 @@
     # for the full list
     'category': 'Uncategorized',
     'version': '0.1',
+    'license': 'LGPL-3',
 
     # any module necessary for this one to work correctly
 
@@ -23,14 +24,13 @@
 
     # always loaded
     'data': [
-         'security/ir.model.access.csv',
-        'views/sale_order_view.xml',
-         'views/purchase_order_view.xml',
+        'security/ir.model.access.csv',
         'wizard/purchase_wizard_view.xml',
+        'views/sale_order_view.xml',
+        'views/purchase_order_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
 }
-

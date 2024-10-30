@@ -5,8 +5,9 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='order_line']/tree//field[@name='name']" position="replace">
-                    <field name="name" groups="sale_purchase_description_to_delivery.group_sale_order_purchase_order_description"/>
+                <xpath expr="//page[@name='order_lines']/field/list/field[@name='name']" position="attributes">
+                    <attribute name="required">False</attribute>
+                    <attribute name="groups">sale_purchase_description_to_delivery.group_sale_order_purchase_order_description</attribute>
                 </xpath>
             </field>
         </record>

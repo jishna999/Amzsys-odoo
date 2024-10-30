@@ -2,10 +2,10 @@
 {
     'name': "picking_vendor_bill",
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'summary': "vendor bill From Purchase delivery",
 
     'description': """
-Long description of module's purpose
+    Created vendor bill after the transfer has created in purchase
     """,
 
     'author': "My Company",
@@ -18,14 +18,13 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','purchase_stock'],
+    'depends': ['base','purchase','stock','account'],
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
+         'security/ir.model.access.csv',
         'wizard/vendor_bill_register_payment.xml',
         'views/stock_picking_views.xml',
-        'views/templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

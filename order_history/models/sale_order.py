@@ -38,7 +38,7 @@ class SaleOrder(models.Model):
         sale_orders = self.env['sale.order'].search(domain, order='date_order desc', limit=last_no_of_orders)
 
         _logger.info("Sale orders found: %d", len(sale_orders))
-       
+
         histories = []
         for order in sale_orders:
             _logger.info("Order %d has %d lines", order.id, len(order.order_line))

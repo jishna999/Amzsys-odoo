@@ -16,9 +16,10 @@ Long description of module's purpose
     # for the full list
     'category': 'Uncategorized',
     'version': '0.1',
+    'license': 'LGPL-3',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','product','sale_management'],
+    'depends': ['base', 'product', 'sale_management'],
 
     # always loaded
     'data': [
@@ -31,4 +32,3 @@ Long description of module's purpose
         'demo/demo.xml',
     ],
 }
-

@@ -21,37 +21,8 @@ class ProductPricelistItem(models.Model):
     product_variant_ids = fields.Many2one(
         comodel_name='product.product',
         string="Product Variant",
-        ondelete='cascade',require=True,
+        ondelete='cascade',required=True,
         help="Specify the product variant if this rule only applies to a specific product variant. Leave empty otherwise."
-    )
-
-    @api.depends('compute_price', 'tiers_ids')
-    def _compute_name_and_price(self):
-
-        for item in self:
-            super(ProductPricelistItem, item)._compute_name_and_price()
-
-            if item.compute_price == 'tiered' and item.product_variant_ids and item.tiers_ids:
-
-                item.price = _("%s tiers defined: %s") % (
-                    len(item.tiers_ids),
-                    ','.join(map(str, item.tiers_ids.mapped('tier_no')))
-                )
-                item.name = ', '.join(item.product_variant_ids.mapped('name'))
-
-
-            else:
-                item.price = _("No tiers defined")
-                item.name = ''
-
-
-class ProductProduct(models.Model):
-    _inherit = 'product.product'
-
-    pricelist_item_ids = fields.One2many(
-        comodel_name='product.pricelist.item',
-        inverse_name='product_variant_ids',
-        string='Pricelist Items'
     )
 
 
@@ -78,5 +49,3 @@ class TiersLines(models.Model):
         required=True,
         default=lambda self: self.env.company.currency_id
     )
-
-

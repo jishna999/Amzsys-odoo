@@ -1,21 +1,18 @@
 <odoo>
+
+
     <record id="view_order_form_inherit" model="ir.ui.view">
-        <field name="name">sale.order.form.inherit</field>
+        <field name="name">view.sale.order.form.inherit</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
-                <button name="%(action_open_purchase_order_wizard)d" type="action" string="Create Purchase Order" class="oe_highlight"/>
+                <button name="%(so_to_po.action_open_purchase_order_wizard)d"
+                        type="action"
+                        string="Create Purchase Order"
+                        class="oe_highlight"/>
             </xpath>
         </field>
     </record>
 
-    <record id="action_open_purchase_order_wizard" model="ir.actions.act_window">
-        <field name="name">Create Purchase Order</field>
-        <field name="res_model">create.purchase.order.wizard</field>
-        <field name="view_mode">form</field>
-        <field name="view_id" ref="so_to_po.view_create_purchase_order_wizard_form"/>
-        <field name="target">new</field>
-        <field name="context">{'default_sale_order_id': active_id}</field>
-    </record>
 </odoo>

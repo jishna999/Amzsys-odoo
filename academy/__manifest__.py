@@ -1,17 +1,21 @@
 {
     'name': "academy",
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'summary': "Manage students, teachers, and hobbies effectively.",
 
     'description': """
-Long description of module's purpose
+        The Academy module helps manage students, teachers, hobbies, and student tags.
+        It allows you to keep track of student information, assign hobbies, and categorize
+        students using tags. Teachers can be linked to students, and all relevant information
+        is organized and easily accessible.
     """,
 
     'author': "My Company",
     'website': "https://www.yourcompany.com",
 
-    'category': 'Uncategorized',
+    'category': 'Education',
     'version': '0.1',
+    'license': 'LGPL-3',
 
     'depends': ['base', 'mail', 'product'],
 
@@ -23,7 +27,6 @@ Long description of module's purpose
         'views/student_tag_lines.xml',
         'views/student_tag_line_views.xml',
         'views/data.xml',
-
     ],
 
     'demo': [

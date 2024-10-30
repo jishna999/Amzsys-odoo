@@ -18,14 +18,14 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['sale','sale_management','stock','stock_account','custom_sales'],
+    'depends': ['sale','stock'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'views/sale_order_template.xml',
         'views/stock_picking_templates.xml',
-        'views/stock_move_template.xml'
+        # 'views/stock_move_template.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

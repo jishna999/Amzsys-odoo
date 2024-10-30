@@ -16,4 +16,3 @@ class SaleOrderLine(models.Model):
 
             },
         }
-

@@ -1,14 +1,8 @@
-from odoo import models, fields, api
+from odoo import models
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
-    pricelist_id = fields.Many2one(
-        'product.pricelist',
-        string='Pricelist',
-        related='order_id.pricelist_id',
-        readonly=True,
-    )
 
     def action_select_pricelist(self):
         return {

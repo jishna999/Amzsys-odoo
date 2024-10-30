@@ -11,6 +11,5 @@ class MrpBom(models.Model):
             'target': 'new',
             'context': {
                 'default_mrp_bill_of_materials_id': self.id,
-
             },
         }
